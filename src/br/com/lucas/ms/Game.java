@@ -4,27 +4,26 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
-import br.com.lucas.ms.model.Board;
-import br.com.lucas.ms.model.Field;
+import br.com.lucas.ms.interactions.Board;
+import br.com.lucas.ms.model.PanelBoard;
 
 @SuppressWarnings("serial")
 public class Game extends JFrame {
+	
+	private final Dimension medium = new Dimension(690, 438);
 
 	Game() {
-
-		Dimension medium = new Dimension(648, 400);
+		
+		Board board = new Board(16, 30, 50);
+		add(new PanelBoard(board));
 
 		setVisible(true);
+		setTitle("MineSweeper");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
+
 		setMaximumSize(medium);
 		setMinimumSize(medium);
-		
-		Board board = new Board();
-		Field field = new Field();
-		
-		add(board);
-		add(field);
 
 	}
 
